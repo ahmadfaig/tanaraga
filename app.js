@@ -52,14 +52,19 @@ const isWithinDisplayWindow = (item) => {
   return date >= oneDayAgo;
 };
 
+let allClasses = [];
+let activeFilter = "all";
+
 const renderClasses = (items) => {
   const classGrid = document.querySelector("#class-grid");
   if (!classGrid) return;
-  if (!items.length) {
+  const limit = Number(classGrid.dataset.limit || 0);
+  const visibleItems = (activeFilter === "all" ? items : items.filter((item) => item.audience === activeFilter)).slice(0, limit || undefined);
+  if (!visibleItems.length) {
     classGrid.innerHTML = '<p class="class-empty">There are no upcoming classes right now. Check back soon.</p>';
     return;
   }
-  classGrid.innerHTML = items.map((item) => {
+  classGrid.innerHTML = visibleItems.map((item) => {
     const date = parseSheetDate(item.date);
     const program = escapeHtml(item.program);
     const message = `Hi Sync, I'd like to ask about the ${item.audience} ${item.program} class on ${formatClassDate(date)}.`;
@@ -72,6 +77,7 @@ const renderClasses = (items) => {
           <div><dt>When</dt><dd>${formatClassDate(date)}, ${formatTimeRange(item.start_time, item.duration)}</dd></div>
           <div><dt>Where</dt><dd><a class="location-link" href="${escapeHtml(item.location_url)}" target="_blank" rel="noopener">${escapeHtml(item.location)} <span aria-hidden="true">↗</span></a></dd></div>
           <div><dt>Duration</dt><dd>${escapeHtml(item.duration)}</dd></div>
+          <div><dt>Coach</dt><dd>${escapeHtml(item.coach || "To be confirmed")}</dd></div>
         </dl>
         <div class="card-bottom"><span>From <strong>${formatRupiah(item.price)}</strong></span><a class="card-link" href="${makeWhatsAppUrl(message)}" target="_blank" rel="noopener">Join <span aria-hidden="true">↗</span></a></div>
       </article>`;
@@ -107,10 +113,10 @@ const loadClasses = async () => {
   const classGrid = document.querySelector("#class-grid");
   try {
     const table = await getSheetTable();
-    const classes = normalizeRows(table)
+    allClasses = normalizeRows(table)
       .filter(isWithinDisplayWindow)
       .sort((a, b) => parseSheetDate(a.date) - parseSheetDate(b.date));
-    renderClasses(classes);
+    renderClasses(allClasses);
   } catch (error) {
     if (classGrid) classGrid.innerHTML = '<p class="class-empty">Classes are temporarily unavailable. Please try again shortly.</p>';
     console.error(error);
@@ -121,6 +127,14 @@ document.querySelectorAll(".whatsapp-link").forEach((link) => {
   link.href = makeWhatsAppUrl(link.dataset.message || "Hi Sync, I'd like to ask about a class.");
   link.target = "_blank";
   link.rel = "noopener";
+});
+
+document.querySelectorAll(".filter-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    activeFilter = button.dataset.filter;
+    document.querySelectorAll(".filter-button").forEach((filter) => filter.classList.toggle("active", filter === button));
+    renderClasses(allClasses);
+  });
 });
 
 loadClasses();

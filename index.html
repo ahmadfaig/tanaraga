@@ -12,9 +12,10 @@
   </head>
   <body>
     <header class="site-header container">
-      <a class="wordmark" href="index.html" aria-label="Sync home">sync<span>.</span></a>
+      <a class="brand-logo" href="index.html" aria-label="Sync home"><img src="assets/sync-logo.png" alt="Sync" /></a>
       <nav aria-label="Main navigation">
         <a class="active" href="index.html">Classes</a>
+        <a href="classes.html">Schedule</a>
         <a href="about.html">About Tanaraga</a>
       </nav>
     </header>
@@ -47,7 +48,24 @@
           </div>
           <p>All sessions take place at Padel Cafe. Pick the group that feels right for you.</p>
         </div>
-        <div class="container class-grid" id="class-grid" aria-live="polite"><p class="class-empty">Loading available classes…</p></div>
+        <div class="container class-grid" id="class-grid" data-limit="6" aria-live="polite"><p class="class-empty">Loading available classes…</p></div>
+        <div class="container class-archive-link"><a class="button button-outline" href="classes.html">Show all classes <span aria-hidden="true">→</span></a></div>
+      </section>
+
+      <section class="program container" id="program" aria-labelledby="program-title">
+        <div class="program-intro">
+          <p class="eyebrow">The program</p>
+          <h2 id="program-title">S.Y.N.C</h2>
+          <p class="program-acronym">Sweat. Youthful. Nurture. Collective.</p>
+          <p>S&amp;C training for every age — kids, teens, adults, crews.</p>
+          <p class="program-hashtag">#WeMoveinSYNC</p>
+        </div>
+        <div class="program-list">
+          <article class="program-card"><span>01</span><h3>SYNC Rise</h3><p class="program-audience">Kids to Teenager · Ages 6–17</p><p class="program-quote">“Every rep, a step up.”</p><p>Strength &amp; conditioning for growing athletes. SYNC Rise builds coordination, agility, and confidence through age-appropriate training — turning play into performance and performance into lifelong movement habits.</p></article>
+          <article class="program-card"><span>02</span><h3>SYNC Apex</h3><p class="program-audience">Youth &amp; Pro Athletes · Ages 14+</p><p class="program-quote">“Where performance meets purpose.”</p><p>Strength &amp; conditioning for competitive athletes. SYNC Apex is built for youth and pro athletes training to compete — sport-specific power, speed, and conditioning programming designed to sharpen performance where it counts.</p></article>
+          <article class="program-card"><span>03</span><h3>SYNC Grind</h3><p class="program-audience">Recreational Athletes · Ages 18–50ish</p><p class="program-quote">“Show up, put in the work.”</p><p>Strength &amp; conditioning for everyday athletes. SYNC Grind is where weekend warriors train with purpose — consistent, no-ego effort built into real strength, endurance, and resilience for sport, life, and everything in between.</p></article>
+          <article class="program-card"><span>04</span><h3>SYNC Pulse</h3><p class="program-audience">Active Aging · Ages 50+</p><p class="program-quote">“Still beating, still moving.”</p><p>Strength &amp; conditioning for lasting vitality. SYNC Pulse focuses on functional strength, balance, and mobility — helping every member stay strong, independent, and confident in how they move, at any age.</p></article>
+        </div>
       </section>
 
       <section class="coaches container" id="coaches" aria-labelledby="coaches-title">
@@ -85,7 +103,7 @@
     </main>
 
     <footer class="site-footer container">
-      <a class="wordmark" href="index.html">sync<span>.</span></a>
+      <a class="brand-logo" href="index.html"><img src="assets/sync-logo.png" alt="Sync" /></a>
       <p>A Tanaraga company</p>
       <a href="about.html">About Tanaraga</a>
     </footer>

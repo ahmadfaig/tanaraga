@@ -26,6 +26,7 @@ The initial site is a responsive static HTML, CSS, and JavaScript implementation
 - `app.js` reads the live class list from the Tanaraga Google Sheet, filters it, formats dates, and creates WhatsApp and location links.
 - `styles.css` holds the shared responsive visual system.
 - `assets/sync-hero.png` is used as the editorial training image on both pages.
+- `assets/sync-logo.png` is the supplied SYNC logo. The brand palette uses orange `#E22E00`, sage `#A3BBA5`, off-white `#F2EFE9`, sand `#D6C7B5`, and charcoal `#2D2D2D`.
 
 ## Sitemap
 
@@ -40,6 +41,7 @@ Content:
 3. A class list, with each class showing its name, short description, schedule/location or a clear availability note, and a WhatsApp call to action.
 4. A closing WhatsApp call to action for visitors who need help choosing a class.
 5. A Coaches section beneath the classes, with three editable coach profiles and short descriptions.
+6. A program overview for SYNC Rise, Apex, Grind, and Pulse.
 
 **Visual direction:** clean, minimal, warm-neutral, and editorial. The homepage hero uses a two-column layout with Sync copy on the left and a training image of a man and woman on the right. On mobile, the image follows the copy.
 
@@ -63,6 +65,8 @@ Each class card should contain:
 | CTA | WhatsApp enquiry or booking CTA with the selected customer type included in the prefilled message. |
 
 The class list is read from the Tanaraga Google Sheet. The site displays only rows where `active` is `TRUE` and removes sessions once they are more than one day in the past. Dates are displayed in the format `Saturday, 26 Sep`.
+
+The homepage shows the six nearest eligible classes and links to `/classes.html` for the full upcoming schedule. The schedule page offers class-audience filters. Class cards show the coach from the sheet's `coach` column.
 
 The Padel Cafe location label should link to the exact Google Maps venue URL: `https://maps.app.goo.gl/BtrWfgkHJYknd6fh6`.
 

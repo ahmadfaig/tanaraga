@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Upcoming Sync strength and conditioning classes." />
+    <title>Class Schedule — Sync</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header container">
+      <a class="brand-logo" href="index.html" aria-label="Sync home"><img src="assets/sync-logo.png" alt="Sync" /></a>
+      <nav aria-label="Main navigation"><a href="index.html">Classes</a><a class="active" href="classes.html">Schedule</a><a href="about.html">About Tanaraga</a></nav>
+    </header>
+    <main>
+      <section class="schedule-hero container"><p class="eyebrow">Sync schedule</p><h1>Find your next<br /><em>session.</em></h1><p>Explore all upcoming strength and conditioning classes at Padel Cafe.</p></section>
+      <section class="schedule-section container">
+        <div class="class-filters" aria-label="Filter classes"><button class="filter-button active" data-filter="all">All classes</button><button class="filter-button" data-filter="Kids">Kids</button><button class="filter-button" data-filter="Adults">Adults</button><button class="filter-button" data-filter="Older Adults">Older Adults</button></div>
+        <div class="class-grid" id="class-grid" aria-live="polite"><p class="class-empty">Loading available classes…</p></div>
+      </section>
+    </main>
+    <footer class="site-footer container"><a class="brand-logo" href="index.html"><img src="assets/sync-logo.png" alt="Sync" /></a><p>A Tanaraga company</p><a href="about.html">About Tanaraga</a></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
