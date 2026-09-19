@@ -25,6 +25,8 @@ The initial site is a responsive static HTML, CSS, and JavaScript implementation
 - `about.html` introduces Tanaraga, its ecosystem, and its team.
 - `app.js` reads the live class list from the Tanaraga Google Sheet, filters it, formats dates, and creates WhatsApp and location links.
 - `styles.css` holds the shared responsive visual system.
+- CSS and JavaScript references use content-hash query strings for cache busting. Refresh these hashes whenever either asset changes.
+- Run `powershell -ExecutionPolicy Bypass -File scripts/update-asset-hashes.ps1` after changing `styles.css` or `app.js`.
 - `assets/sync-hero.png` is used as the editorial training image on both pages.
 - `assets/sync-logo.png` is the supplied SYNC logo. The brand palette uses orange `#E22E00`, sage `#A3BBA5`, off-white `#F2EFE9`, sand `#D6C7B5`, and charcoal `#2D2D2D`.
 
