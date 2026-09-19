@@ -23,7 +23,7 @@ The initial site is a responsive static HTML, CSS, and JavaScript implementation
 
 - `index.html` is the Sync-led homepage.
 - `about.html` introduces Tanaraga, its ecosystem, and its team.
-- `app.js` contains configurable class information, the WhatsApp number, and outbound locations.
+- `app.js` reads the live class list from the Tanaraga Google Sheet, filters it, formats dates, and creates WhatsApp and location links.
 - `styles.css` holds the shared responsive visual system.
 - `assets/sync-hero.png` is used as the editorial training image on both pages.
 
@@ -62,7 +62,7 @@ Each class card should contain:
 | Duration | `1 hour` |
 | CTA | WhatsApp enquiry or booking CTA with the selected customer type included in the prefilled message. |
 
-For launch, render three cards for the same Strength & Conditioning program—one each for Kids, Adults, and Older Adults. The exact weekend day, start time, price, and available slots should be maintained as configurable data. Until final values are confirmed, use clearly labelled placeholder values rather than suggesting live availability.
+The class list is read from the Tanaraga Google Sheet. The site displays only rows where `active` is `TRUE` and removes sessions once they are more than one day in the past. Dates are displayed in the format `Saturday, 26 Sep`.
 
 The Padel Cafe location label should link to the exact Google Maps venue URL: `https://maps.app.goo.gl/BtrWfgkHJYknd6fh6`.
 
