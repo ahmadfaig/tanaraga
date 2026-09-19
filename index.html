@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sync by Tanaraga — strength and conditioning classes at Padel Cafe." />
+    <title>Sync — Strength &amp; Conditioning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header container">
+      <a class="wordmark" href="index.html" aria-label="Sync home">sync<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="index.html">Classes</a>
+        <a href="about.html">About Tanaraga</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow">Strength &amp; Conditioning · Padel Cafe</p>
+            <h1>Move better.<br /><em>Feel stronger.</em></h1>
+            <p class="hero-copy">Straightforward strength and conditioning for every stage of life. Small groups, expert coaching, and one clear hour for yourself.</p>
+            <a class="button button-dark" href="#classes">Find your class <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-image-wrap">
+            <img class="hero-image" src="assets/sync-hero.png" alt="A Sync participant training with a kettlebell" />
+          </div>
+        </div>
+        <div class="hero-notes" aria-label="Class highlights">
+          <span>Weekend mornings</span>
+          <span>1 hour sessions</span>
+          <span>Small groups</span>
+        </div>
+      </section>
+
+      <section class="classes-section" id="classes">
+        <div class="container section-heading">
+          <div>
+            <p class="eyebrow">The program</p>
+            <h2>Find your pace.</h2>
+          </div>
+          <p>All sessions take place at Padel Cafe. Pick the group that feels right for you.</p>
+        </div>
+        <div class="container class-grid" id="class-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="coaches container" id="coaches" aria-labelledby="coaches-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The coaches</p>
+            <h2 id="coaches-title">Guidance that<br />meets you where you are.</h2>
+          </div>
+          <p>Every Sync class is led by a coach who makes training clear, encouraging, and personal.</p>
+        </div>
+        <div class="coach-grid">
+          <article class="coach-card">
+            <div class="coach-image" aria-hidden="true"><span>01</span></div>
+            <h3>Coach Name</h3>
+            <p>Strength and conditioning coach focused on helping people build strong, confident movement habits.</p>
+          </article>
+          <article class="coach-card">
+            <div class="coach-image coach-image-alt" aria-hidden="true"><span>02</span></div>
+            <h3>Coach Name</h3>
+            <p>Patient, energetic coaching for every fitness level—always with practical cues and clear progressions.</p>
+          </article>
+          <article class="coach-card">
+            <div class="coach-image coach-image-dark" aria-hidden="true"><span>03</span></div>
+            <h3>Coach Name</h3>
+            <p>Movement-first training designed to help you feel capable, resilient, and at home in your body.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="enquiry container">
+        <p class="eyebrow">Not sure where to start?</p>
+        <h2>We’ll help you find<br />the right class.</h2>
+        <a class="button button-light whatsapp-link" data-message="Hi Sync, I'd like help choosing a class." href="#">Chat on WhatsApp <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <a class="wordmark" href="index.html">sync<span>.</span></a>
+      <p>A Tanaraga company</p>
+      <a href="about.html">About Tanaraga</a>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
