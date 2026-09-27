@@ -3,6 +3,16 @@ const SHEET_ID = "1ZRDM1XyNebsnc1yr81OKpzM0hhAr_LSTsW6jPnyVgyg";
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq`;
 const JAKARTA_TIME_ZONE = "Asia/Jakarta";
 
+const navigation = document.querySelector("nav[aria-label='Main navigation'], header nav");
+if (navigation) {
+  const currentPage = location.pathname.split("/").pop() || "index.html";
+  const activePage = location.hash === "#schedule" ? "schedule" : currentPage;
+  const links = [
+    ["index.html", "Home", "index.html"], ["classes.html", "Classes", "classes.html"], ["programs.html", "Programs", "programs.html"], ["classes.html#schedule", "Schedule", "schedule"], ["about.html", "About Tanaraga", "about.html"],
+  ];
+  navigation.innerHTML = links.map(([href, label, key]) => `<a class="${activePage === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
+}
+
 const formatRupiah = (amount) => new Intl.NumberFormat("id-ID", {
   style: "currency", currency: "IDR", maximumFractionDigits: 0,
 }).format(Number(amount));
@@ -52,6 +62,8 @@ const isWithinDisplayWindow = (item) => {
   return date >= oneDayAgo;
 };
 
+const classType = (item) => item.class_type || ({ Kids: "Rise", Adults: "Grind", "Older Adults": "Pulse" }[item.audience] || item.audience);
+
 let allClasses = [];
 let activeFilter = "all";
 
@@ -59,19 +71,19 @@ const renderClasses = (items) => {
   const classGrid = document.querySelector("#class-grid");
   if (!classGrid) return;
   const limit = Number(classGrid.dataset.limit || 0);
-  const visibleItems = (activeFilter === "all" ? items : items.filter((item) => item.audience === activeFilter)).slice(0, limit || undefined);
+  const visibleItems = (activeFilter === "all" ? items : items.filter((item) => classType(item) === activeFilter)).slice(0, limit || undefined);
   if (!visibleItems.length) {
     classGrid.innerHTML = '<p class="class-empty">There are no upcoming classes right now. Check back soon.</p>';
     return;
   }
   classGrid.innerHTML = visibleItems.map((item) => {
     const date = parseSheetDate(item.date);
-    const program = escapeHtml(item.program);
-    const message = `Hi Sync, I'd like to ask about the ${item.audience} ${item.program} class on ${formatClassDate(date)}.`;
+    const type = classType(item);
+    const message = `Hi Sync, I'd like to ask about the ${type} ${item.sub_class || "class"} on ${formatClassDate(date)}.`;
     return `
       <article class="class-card">
-        <div class="card-top"><span class="class-type">${escapeHtml(item.audience)}</span><span class="slots">${escapeHtml(item.slots)} slots left</span></div>
-        <h3>${program.replace(" &amp; ", " &amp;<br />")}</h3>
+        <div class="card-top"><span class="class-type">${escapeHtml(classType(item))}</span><span class="slots">${escapeHtml(item.slots)} slots left</span></div>
+        <h3>${escapeHtml(item.sub_class || type).replace(" &amp; ", " &amp;<br />")}</h3>
         <p class="age">${escapeHtml(item.age)}</p>
         <dl class="class-details">
           <div><dt>When</dt><dd>${formatClassDate(date)}, ${formatTimeRange(item.start_time, item.duration)}</dd></div>

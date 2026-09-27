@@ -66,7 +66,7 @@ Each class card should contain:
 | Duration | `1 hour` |
 | CTA | WhatsApp enquiry or booking CTA with the selected customer type included in the prefilled message. |
 
-The class list is read from the Tanaraga Google Sheet. The site displays only rows where `active` is `TRUE` and removes sessions once they are more than one day in the past. Dates are displayed in the format `Saturday, 26 Sep`.
+The class list is read from the Tanaraga Google Sheet. The site displays only rows where `active` is `TRUE` and removes sessions once they are more than one day in the past. Dates are displayed in the format `Saturday, 26 Sep`. Class display uses `class_type` and `sub_class`; a `program` column is not required.
 
 The homepage shows the six nearest eligible classes and links to `/classes.html` for the full upcoming schedule. The schedule page offers class-audience filters. Class cards show the coach from the sheet's `coach` column.
 
